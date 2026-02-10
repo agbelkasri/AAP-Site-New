@@ -70,6 +70,18 @@ export default function Home() {
     >
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={`${import.meta.env.BASE_URL}hero-bg.mp4`} type="video/mp4" />
+        </video>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
           <motion.div
@@ -77,15 +89,15 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-white/15 text-white/90 backdrop-blur-sm mb-6">
               World Class Manufacturing Since 1993
             </span>
 
-            <div className="text-[#6E6E73] text-lg md:text-xl mb-4 tracking-widest uppercase">
+            <div className="text-white/70 text-lg md:text-xl mb-4 tracking-widest uppercase">
               AAP Inc. &amp; Affiliates
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
               {/* Line 1 - Animated first word */}
               <span className="block pb-2">
                 <AnimatePresence mode="wait">
@@ -95,7 +107,7 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="inline-block bg-gradient-to-r from-[#0066CC] to-[#0071E3] bg-clip-text text-transparent pb-1"
+                    className="inline-block bg-gradient-to-r from-[#4DA3FF] to-[#70B8FF] bg-clip-text text-transparent pb-1"
                     style={{ paddingBottom: '0.1em' }}
                   >
                     {rotatingPhrases[wordIndex].line1}
@@ -112,18 +124,18 @@ export default function Home() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="text-[#1D1D1F] absolute right-0 top-0"
+                      className="text-white absolute right-0 top-0"
                     >
                       {rotatingPhrases[wordIndex].line2}
                     </motion.span>
                   </AnimatePresence>
                   <span className="invisible">Assembly</span>
                 </span>
-                <span className="text-[#1D1D1F]"> Products</span>
+                <span className="text-white"> Products</span>
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-[#6E6E73] max-w-3xl mx-auto mb-6 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-6 leading-relaxed">
               Precision metal stampings, weldments, and mechanical assemblies for OEMs and Tier One automotive suppliers worldwide.
             </p>
 
@@ -137,7 +149,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] rounded-full font-medium transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/15 hover:bg-white/25 text-white rounded-full font-medium transition-all backdrop-blur-sm"
               >
                 Contact Us
               </Link>
