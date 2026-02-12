@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
@@ -17,6 +17,28 @@ import SectionHeading from '../components/SectionHeading'
 import Card from '../components/Card'
 import { CertificationBadges } from '../components/CertificationBadge'
 import LogoCarousel from '../components/LogoCarousel'
+
+// Company logos
+import aapLogo from '../assets/images/company/aap.png'
+import eapLogo from '../assets/images/company/eap.png'
+import gapLogo from '../assets/images/company/gap.png'
+import aapMexicoLogo from '../assets/images/company/aap-mexico.png'
+
+const companyLogos = [
+  { src: aapLogo, alt: 'Advanced Assembly Products, Inc.' },
+  { src: eapLogo, alt: 'Emerging Advanced Products, L.L.C.' },
+  { src: gapLogo, alt: 'Global Advanced Products, L.L.C.' },
+  { src: aapMexicoLogo, alt: 'Advanced Assembly Products México' },
+]
+
+function shuffleArray(arr) {
+  const shuffled = [...arr]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
 
 const competencies = [
   {
@@ -46,21 +68,16 @@ const stats = [
   { value: '24/7', label: 'Customer Support' },
 ]
 
-const rotatingPhrases = [
-  { line1: 'Advanced', line2: 'Assembly' },
-  { line1: 'Global', line2: 'Assembly' },
-  { line1: 'Emerging', line2: 'Advanced' },
-]
-
 export default function Home() {
-  const [wordIndex, setWordIndex] = useState(0)
+  const [logoIndex, setLogoIndex] = useState(0)
+  const shuffledLogos = useMemo(() => shuffleArray(companyLogos), [])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingPhrases.length)
-    }, 5000) // Change phrase every 5 seconds
+      setLogoIndex((prev) => (prev + 1) % shuffledLogos.length)
+    }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [shuffledLogos])
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -93,47 +110,21 @@ export default function Home() {
               World Class Manufacturing Since 1993
             </span>
 
-            <div className="text-white/70 text-lg md:text-xl mb-4 tracking-widest uppercase">
-              AAP Inc. &amp; Affiliates
+            {/* Cycling Company Logos */}
+            <div className="h-24 md:h-32 lg:h-40 mb-8 flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={shuffledLogos[logoIndex].alt}
+                  src={shuffledLogos[logoIndex].src}
+                  alt={shuffledLogos[logoIndex].alt}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="h-full w-auto max-w-[80vw] md:max-w-[600px] object-contain drop-shadow-lg brightness-0 invert"
+                />
+              </AnimatePresence>
             </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
-              {/* Line 1 - Animated first word */}
-              <span className="block pb-2">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={`line1-${wordIndex}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="inline-block bg-gradient-to-r from-[#4DA3FF] to-[#70B8FF] bg-clip-text text-transparent pb-1"
-                    style={{ paddingBottom: '0.1em' }}
-                  >
-                    {rotatingPhrases[wordIndex].line1}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-              {/* Line 2 - Animated second word + stationary "Products" */}
-              <span className="block text-center">
-                <span className="inline-block w-[4.8em] text-right relative align-baseline">
-                  <AnimatePresence mode="popLayout">
-                    <motion.span
-                      key={rotatingPhrases[wordIndex].line2}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="text-white absolute right-0 top-0"
-                    >
-                      {rotatingPhrases[wordIndex].line2}
-                    </motion.span>
-                  </AnimatePresence>
-                  <span className="invisible">Assembly</span>
-                </span>
-                <span className="text-white"> Products</span>
-              </span>
-            </h1>
 
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-6 leading-relaxed">
               Precision metal stampings, weldments, and mechanical assemblies for OEMs and Tier One automotive suppliers worldwide.
