@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion'
 
 // Import logo images
-import adientLogo from '../assets/images/logos/adient.jpg'
+import adientLogo from '../assets/images/logos/adient.png'
 import autokinitonLogo from '../assets/images/logos/autokiniton.png'
-import gmLogo from '../assets/images/logos/gm.webp'
+import gmLogo from '../assets/images/logos/gm.png'
 import goldeGroupLogo from '../assets/images/logos/golde-group.png'
-import learLogo from '../assets/images/logos/lear.jpg'
+import learLogo from '../assets/images/logos/lear.png'
 import metalsaLogo from '../assets/images/logos/metalsa.png'
 import nyxLogo from '../assets/images/logos/nyx.png'
 import opmobilityLogo from '../assets/images/logos/opmobility.png'
 import stellantisLogo from '../assets/images/logos/stellantis.png'
 import thyssenkruppLogo from '../assets/images/logos/thyssenkrupp.png'
-import toyoSeatLogo from '../assets/images/logos/toyo-seat.jpg'
-import voestalpineLogo from '../assets/images/logos/voestalpine.jpeg'
+import toyoSeatLogo from '../assets/images/logos/toyo-seat.png'
+import voestalpineLogo from '../assets/images/logos/voestalpine.png'
 
 const clients = [
   { name: 'Adient', logo: adientLogo },
