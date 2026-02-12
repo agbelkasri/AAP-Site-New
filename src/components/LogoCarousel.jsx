@@ -34,9 +34,9 @@ export default function LogoCarousel() {
   const duplicatedClients = [...clients, ...clients]
 
   return (
-    <section className="pt-2 pb-6 bg-white overflow-hidden">
+    <section className="pt-2 pb-6 overflow-hidden" style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)', backdropFilter: 'blur(8px)' }}>
       <div className="max-w-7xl mx-auto px-6 mb-3">
-        <p className="text-center text-[#9E9E9E] text-[10px] uppercase tracking-widest">
+        <p className="text-center text-white/70 text-[10px] uppercase tracking-widest">
           Trusted by Industry Leaders
         </p>
       </div>
@@ -44,8 +44,8 @@ export default function LogoCarousel() {
       {/* Scrolling container */}
       <div className="relative">
         {/* Gradient fade on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.25), transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, rgba(255,255,255,0.25), transparent)' }} />
 
         {/* Scrolling track */}
         <motion.div

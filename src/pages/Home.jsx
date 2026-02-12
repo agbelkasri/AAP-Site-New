@@ -158,7 +158,7 @@ export default function Home() {
         </div>
 
         {/* Client Logos - Inside hero */}
-        <div className="absolute bottom-4 left-0 right-0">
+        <div className="absolute bottom-0 left-0 right-0">
           <LogoCarousel />
         </div>
       </section>
