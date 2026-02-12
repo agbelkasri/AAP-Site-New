@@ -107,10 +107,10 @@ export default function Products() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F5F7] to-white pt-24">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24" style={{ background: 'linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg))' }}>
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-primary-gradient)]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
@@ -119,13 +119,13 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6">
               Our Products
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
               Manufacturing Excellence
             </h1>
-            <p className="text-xl text-[#6E6E73] max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
               Precision-engineered metal stampings, weldments, and mechanical assemblies for the world's most demanding applications.
             </p>
           </motion.div>
@@ -137,7 +137,7 @@ export default function Products() {
         <section
           key={product.id}
           id={product.id}
-          className={`py-24 ${index % 2 === 0 ? 'bg-white' : 'bg-[#F5F5F7]'}`}
+          className={`py-24 ${index % 2 === 0 ? 'bg-[var(--color-bg)]' : 'bg-[var(--color-bg-secondary)]'}`}
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
@@ -148,24 +148,24 @@ export default function Products() {
                 transition={{ duration: 0.6 }}
                 className={index % 2 !== 0 ? 'lg:order-2' : ''}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-2xl flex items-center justify-center mb-6">
                   <product.icon className="w-8 h-8 text-white" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
                   {product.title}
                 </h2>
-                <p className="text-lg text-[#6E6E73] mb-8 leading-relaxed">
+                <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
                   {product.description}
                 </p>
 
                 {/* Features */}
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-[#1D1D1F] mb-4">Capabilities</h3>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Capabilities</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {product.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-[#0066CC] flex-shrink-0" />
-                        <span className="text-[#6E6E73] text-sm">{feature}</span>
+                        <CheckCircle className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0" />
+                        <span className="text-[var(--color-text-secondary)] text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -173,12 +173,12 @@ export default function Products() {
 
                 {/* Materials */}
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-[#1D1D1F] mb-4">Materials</h3>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Materials</h3>
                   <div className="flex flex-wrap gap-2">
                     {product.materials.map((material, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 bg-[#E8E8ED] rounded-full text-sm text-[#1D1D1F]"
+                        className="px-3 py-1.5 bg-[var(--color-bg-tertiary)] rounded-full text-sm text-[var(--color-text-primary)]"
                       >
                         {material}
                       </span>
@@ -213,7 +213,7 @@ export default function Products() {
       ))}
 
       {/* Capabilities Matrix */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Technical Specifications"
@@ -229,13 +229,13 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#F5F5F7] rounded-2xl p-8 text-center hover:shadow-lg transition-shadow"
+                className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 text-center hover:shadow-lg transition-shadow"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center mx-auto mb-4">
                   <cap.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#1D1D1F] mb-2">{cap.title}</h3>
-                <p className="text-[#6E6E73]">{cap.description}</p>
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-2">{cap.title}</h3>
+                <p className="text-[var(--color-text-secondary)]">{cap.description}</p>
               </motion.div>
             ))}
           </div>
@@ -306,7 +306,7 @@ export default function Products() {
       </section>
 
       {/* Industries Served */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Markets We Serve"
@@ -322,13 +322,13 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#F5F5F7] rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+                className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <industry.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-3">{industry.title}</h3>
-                <p className="text-[#6E6E73]">{industry.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{industry.title}</h3>
+                <p className="text-[var(--color-text-secondary)]">{industry.description}</p>
               </motion.div>
             ))}
           </div>

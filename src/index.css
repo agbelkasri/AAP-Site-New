@@ -1,5 +1,99 @@
 @import "tailwindcss";
 
+/* Theme CSS Custom Properties */
+/* Dark mode is default (no class needed on html) */
+:root {
+  /* Backgrounds */
+  --color-bg: #0A0A0B;
+  --color-bg-secondary: #141416;
+  --color-bg-tertiary: #1A1A1C;
+  --color-surface: #1D1D1F;
+  --color-surface-hover: #2D2D2F;
+
+  /* Borders */
+  --color-border: #2D2D2F;
+
+  /* Text */
+  --color-text-primary: #F5F5F7;
+  --color-text-secondary: #A1A1A6;
+  --color-text-tertiary: #6E6E73;
+
+  /* Brand */
+  --color-primary: #4DA3FF;
+  --color-primary-hover: #70B8FF;
+  --color-primary-gradient: #5BB5FF;
+
+  /* Always-dark sections (footer, CTA) */
+  --color-dark-section-from: #1D1D1F;
+  --color-dark-section-to: #2D2D2F;
+
+  /* Glass morphism */
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-bg-light: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bubble: rgba(255, 255, 255, 0.15);
+  --glass-bubble-shadow: rgba(0, 0, 0, 0.3);
+  --glass-inset-light: rgba(255, 255, 255, 0.15);
+  --glass-inset-dark: rgba(0, 0, 0, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Nav text */
+  --nav-text: rgba(255, 255, 255, 0.7);
+  --nav-text-active: #FFFFFF;
+
+  /* Scrollbar */
+  --scrollbar-track: #141416;
+  --scrollbar-thumb: #3A3A3C;
+  --scrollbar-thumb-hover: #6E6E73;
+
+  /* Selection */
+  --color-selection-bg: #4DA3FF;
+  --color-selection-text: white;
+
+  /* Focus */
+  --color-focus: #4DA3FF;
+}
+
+/* Light mode overrides */
+.light {
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F5F5F7;
+  --color-bg-tertiary: #E8E8ED;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F5F5F7;
+
+  --color-border: #E8E8ED;
+
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+  --color-text-tertiary: #A1A1A6;
+
+  --color-primary: #0066CC;
+  --color-primary-hover: #0052A3;
+  --color-primary-gradient: #0071E3;
+
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg-light: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-bubble: rgba(255, 255, 255, 0.9);
+  --glass-bubble-shadow: rgba(0, 0, 0, 0.1);
+  --glass-inset-light: rgba(255, 255, 255, 0.8);
+  --glass-inset-dark: rgba(0, 0, 0, 0.05);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+
+  --nav-text: rgba(29, 29, 31, 0.7);
+  --nav-text-active: #1D1D1F;
+
+  --scrollbar-track: #F5F5F7;
+  --scrollbar-thumb: #C0C0C0;
+  --scrollbar-thumb-hover: #6E6E73;
+
+  --color-selection-bg: #0066CC;
+  --color-selection-text: white;
+
+  --color-focus: #0066CC;
+}
+
 /* Base layer styles */
 @layer base {
   html {
@@ -8,11 +102,12 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #1D1D1F;
-    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   #root {
@@ -44,41 +139,41 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F7;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C0C0C0;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6E6E73;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Selection color */
 ::selection {
-  background-color: #0066CC;
-  color: white;
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
 
 /* Focus styles */
 :focus-visible {
-  outline: 2px solid #0066CC;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
 /* Custom utilities */
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #0066CC 0%, #0071E3 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-gradient) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glass-effect {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }

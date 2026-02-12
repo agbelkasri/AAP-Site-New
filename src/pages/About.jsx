@@ -57,10 +57,10 @@ export default function About() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F5F7] to-white pt-24">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24" style={{ background: 'linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg))' }}>
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-primary-gradient)]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
@@ -69,13 +69,13 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6">
               Our Story
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
               About AAP Inc.
             </h1>
-            <p className="text-xl text-[#6E6E73] max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
               Three decades of manufacturing excellence, serving the world's leading automotive companies.
             </p>
           </motion.div>
@@ -101,7 +101,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -115,13 +115,13 @@ export default function About() {
                 title="From Vision to World-Class Reality"
                 centered={false}
               />
-              <p className="text-lg text-[#6E6E73] mb-6 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-6 leading-relaxed">
                 Founded in 1993, AAP Inc. began with a simple vision: to provide world-class manufacturing solutions to the automotive industry. What started as a small operation in Michigan has grown into a global manufacturing partner serving OEMs and Tier One suppliers across the world.
               </p>
-              <p className="text-lg text-[#6E6E73] mb-6 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-6 leading-relaxed">
                 Our journey has been marked by continuous improvement, strategic expansion, and an unwavering commitment to quality. Today, with facilities in both the USA and Mexico, we deliver precision-engineered metal stampings, weldments, and mechanical assemblies that meet the demanding requirements of the automotive industry.
               </p>
-              <p className="text-lg text-[#6E6E73] leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
                 Our success is built on the foundation of our people, processes, and technology working together to exceed customer expectations every day.
               </p>
             </motion.div>
@@ -141,12 +141,12 @@ export default function About() {
                 ].map((stat, index) => (
                   <div
                     key={index}
-                    className="bg-[#F5F5F7] rounded-2xl p-6 text-center"
+                    className="bg-[var(--color-bg-secondary)] rounded-2xl p-6 text-center"
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-[#0066CC] mb-2">
+                    <div className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-[#6E6E73]">{stat.label}</div>
+                    <div className="text-[var(--color-text-secondary)]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -156,7 +156,7 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Our History"
@@ -166,7 +166,7 @@ export default function About() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#E8E8ED] hidden lg:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-border)] hidden lg:block" />
 
             <div className="space-y-12">
               {timeline.map((item, index) => (
@@ -182,33 +182,33 @@ export default function About() {
                 >
                   <div className="flex-1 lg:pr-12 lg:text-right hidden lg:block">
                     {index % 2 === 0 && (
-                      <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E8E8ED]">
-                        <div className="text-sm text-[#0066CC] font-medium mb-2">{item.year}</div>
-                        <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">{item.title}</h3>
-                        <p className="text-[#6E6E73]">{item.description}</p>
+                      <div className="bg-[var(--color-surface)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
+                        <div className="text-sm text-[var(--color-primary)] font-medium mb-2">{item.year}</div>
+                        <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">{item.title}</h3>
+                        <p className="text-[var(--color-text-secondary)]">{item.description}</p>
                       </div>
                     )}
                   </div>
 
                   {/* Center Dot */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0066CC] rounded-full hidden lg:block" />
+                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[var(--color-primary)] rounded-full hidden lg:block" />
 
                   <div className="flex-1 lg:pl-12 hidden lg:block">
                     {index % 2 !== 0 && (
-                      <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E8E8ED]">
-                        <div className="text-sm text-[#0066CC] font-medium mb-2">{item.year}</div>
-                        <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">{item.title}</h3>
-                        <p className="text-[#6E6E73]">{item.description}</p>
+                      <div className="bg-[var(--color-surface)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
+                        <div className="text-sm text-[var(--color-primary)] font-medium mb-2">{item.year}</div>
+                        <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">{item.title}</h3>
+                        <p className="text-[var(--color-text-secondary)]">{item.description}</p>
                       </div>
                     )}
                   </div>
 
                   {/* Mobile View */}
                   <div className="lg:hidden w-full">
-                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E8E8ED]">
-                      <div className="text-sm text-[#0066CC] font-medium mb-2">{item.year}</div>
-                      <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">{item.title}</h3>
-                      <p className="text-[#6E6E73]">{item.description}</p>
+                    <div className="bg-[var(--color-surface)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
+                      <div className="text-sm text-[var(--color-primary)] font-medium mb-2">{item.year}</div>
+                      <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">{item.title}</h3>
+                      <p className="text-[var(--color-text-secondary)]">{item.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -219,7 +219,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Our Values"
@@ -237,11 +237,11 @@ export default function About() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-3">{value.title}</h3>
-                <p className="text-[#6E6E73]">{value.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{value.title}</h3>
+                <p className="text-[var(--color-text-secondary)]">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -249,7 +249,7 @@ export default function About() {
       </section>
 
       {/* Certifications */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Quality Certified"
@@ -283,11 +283,11 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-[#E8E8ED]"
+                className="bg-[var(--color-surface)] rounded-2xl p-8 border border-[var(--color-border)]"
               >
-                <cert.icon className="w-12 h-12 text-[#0066CC] mb-4" />
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-3">{cert.title}</h3>
-                <p className="text-[#6E6E73]">{cert.description}</p>
+                <cert.icon className="w-12 h-12 text-[var(--color-primary)] mb-4" />
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{cert.title}</h3>
+                <p className="text-[var(--color-text-secondary)]">{cert.description}</p>
               </motion.div>
             ))}
           </div>
@@ -295,7 +295,7 @@ export default function About() {
       </section>
 
       {/* Innovation & Technology */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -309,7 +309,7 @@ export default function About() {
                 title="Innovation & Continuous Improvement"
                 centered={false}
               />
-              <p className="text-lg text-[#6E6E73] mb-8 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
                 At AAP Inc., we believe that innovation is the key to maintaining our competitive edge. We continuously invest in state-of-the-art equipment, advanced processes, and employee development to deliver superior products and services.
               </p>
 
@@ -322,8 +322,8 @@ export default function About() {
                   'Employee training and development programs',
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#0066CC] flex-shrink-0" />
-                    <span className="text-[#1D1D1F]">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0" />
+                    <span className="text-[var(--color-text-primary)]">{item}</span>
                   </div>
                 ))}
               </div>

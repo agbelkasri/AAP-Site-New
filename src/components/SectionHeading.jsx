@@ -19,19 +19,19 @@ export default function SectionHeading({
         <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 ${
           light
             ? 'bg-white/10 text-white/90'
-            : 'bg-[#0066CC]/10 text-[#0066CC]'
+            : 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]'
         }`}>
           {subtitle}
         </span>
       )}
       <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
-        light ? 'text-white' : 'text-[#1D1D1F]'
+        light ? 'text-white' : 'text-[var(--color-text-primary)]'
       }`}>
         {title}
       </h2>
       {description && (
         <p className={`text-lg max-w-2xl ${centered ? 'mx-auto' : ''} ${
-          light ? 'text-white/70' : 'text-[#6E6E73]'
+          light ? 'text-white/70' : 'text-[var(--color-text-secondary)]'
         }`}>
           {description}
         </p>

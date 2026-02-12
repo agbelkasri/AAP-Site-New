@@ -77,16 +77,16 @@ export default function SupplierPortal() {
       </section>
 
       {/* Information Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4">
               Portal Features
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4">
               What You'll Find Here
             </h2>
-            <p className="text-lg text-[#6E6E73] max-w-2xl mx-auto">
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
               Once active, the supplier portal will provide access to essential resources and tools.
             </p>
           </div>
@@ -120,13 +120,13 @@ export default function SupplierPortal() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#F5F5F7] rounded-2xl p-8 text-center"
+                className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 text-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center mx-auto mb-4">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#1D1D1F] mb-2">{feature.title}</h3>
-                <p className="text-[#6E6E73] text-sm">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-2">{feature.title}</h3>
+                <p className="text-[var(--color-text-secondary)] text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -134,28 +134,28 @@ export default function SupplierPortal() {
       </section>
 
       {/* Placeholder Card */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl p-8 md:p-12 text-center border border-[#E8E8ED] shadow-sm"
+            className="bg-[var(--color-surface)] rounded-3xl p-8 md:p-12 text-center border border-[var(--color-border)] shadow-sm"
           >
-            <div className="w-24 h-24 bg-gradient-to-br from-[#0066CC]/10 to-[#0071E3]/10 rounded-full flex items-center justify-center mx-auto mb-8">
-              <LogIn className="w-12 h-12 text-[#0066CC]" />
+            <div className="w-24 h-24 bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary-gradient)]/10 rounded-full flex items-center justify-center mx-auto mb-8">
+              <LogIn className="w-12 h-12 text-[var(--color-primary)]" />
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold text-[#1D1D1F] mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
               Plex UX Portal Integration
             </h3>
 
-            <p className="text-lg text-[#6E6E73] mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto">
               We're working on integrating the Plex UX supplier portal. Once available, you'll be able to access all supplier resources directly from this page.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[#F5F5F7] rounded-full text-[#6E6E73]">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-bg-secondary)] rounded-full text-[var(--color-text-secondary)]">
               <Clock className="w-5 h-5" />
               <span>Coming Soon</span>
             </div>
@@ -164,7 +164,7 @@ export default function SupplierPortal() {
       </section>
 
       {/* Need Help Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -173,38 +173,38 @@ export default function SupplierPortal() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <HelpCircle className="w-16 h-16 text-[#0066CC] mb-6" />
-              <h2 className="text-4xl font-bold text-[#1D1D1F] mb-4">
+              <HelpCircle className="w-16 h-16 text-[var(--color-primary)] mb-6" />
+              <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">
                 Need Assistance?
               </h2>
-              <p className="text-lg text-[#6E6E73] mb-8">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-8">
                 If you're a supplier and need immediate access to information or have questions about becoming a supplier, please contact our team directly.
               </p>
 
               <div className="space-y-4">
                 <a
                   href="tel:+12485432427"
-                  className="flex items-center gap-4 p-4 bg-[#F5F5F7] rounded-xl hover:bg-[#E8E8ED] transition-colors"
+                  className="flex items-center gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl hover:bg-[var(--color-bg-tertiary)] transition-colors"
                 >
-                  <div className="w-10 h-10 bg-[#0066CC] rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-[#6E6E73]">Call Us</div>
-                    <div className="text-[#1D1D1F] font-medium">+1 (248) 543-2427</div>
+                    <div className="text-sm text-[var(--color-text-secondary)]">Call Us</div>
+                    <div className="text-[var(--color-text-primary)] font-medium">+1 (248) 543-2427</div>
                   </div>
                 </a>
 
                 <a
                   href="mailto:suppliers@aapinc.com"
-                  className="flex items-center gap-4 p-4 bg-[#F5F5F7] rounded-xl hover:bg-[#E8E8ED] transition-colors"
+                  className="flex items-center gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl hover:bg-[var(--color-bg-tertiary)] transition-colors"
                 >
-                  <div className="w-10 h-10 bg-[#0066CC] rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-[#6E6E73]">Email Us</div>
-                    <div className="text-[#1D1D1F] font-medium">suppliers@aapinc.com</div>
+                    <div className="text-sm text-[var(--color-text-secondary)]">Email Us</div>
+                    <div className="text-[var(--color-text-primary)] font-medium">suppliers@aapinc.com</div>
                   </div>
                 </a>
               </div>

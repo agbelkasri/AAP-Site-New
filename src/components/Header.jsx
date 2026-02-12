@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -54,15 +55,15 @@ export default function Header() {
           ref={navRef}
           className="relative hidden lg:flex items-center justify-center gap-1 px-2 py-2 rounded-full mx-auto w-fit"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 100%)',
+            background: `linear-gradient(135deg, var(--glass-bg) 0%, var(--glass-bg-light) 100%)`,
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             boxShadow: `
-              0 4px 30px rgba(0, 0, 0, 0.1),
-              inset 0 1px 1px rgba(255, 255, 255, 0.6),
-              inset 0 -1px 1px rgba(0, 0, 0, 0.05)
+              0 4px 30px var(--glass-shadow),
+              inset 0 1px 1px var(--glass-inset-light),
+              inset 0 -1px 1px var(--glass-inset-dark)
             `,
-            border: '1px solid rgba(255, 255, 255, 0.3)',
+            border: '1px solid var(--glass-border)',
           }}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -81,12 +82,12 @@ export default function Header() {
               damping: 30,
             }}
             style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
+              background: `linear-gradient(135deg, var(--glass-bubble) 0%, var(--glass-bubble) 100%)`,
               boxShadow: `
-                0 2px 10px rgba(0, 0, 0, 0.1),
-                0 4px 20px rgba(0, 0, 0, 0.05),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.05)
+                0 2px 10px var(--glass-bubble-shadow),
+                0 4px 20px var(--glass-inset-dark),
+                inset 0 1px 1px var(--glass-inset-light),
+                inset 0 -1px 2px var(--glass-inset-dark)
               `,
             }}
           />
@@ -100,11 +101,10 @@ export default function Header() {
                 href={link.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  hoveredIndex === index
-                    ? 'text-[#1D1D1F]'
-                    : 'text-[#1D1D1F]/70 hover:text-[#1D1D1F]'
-                }`}
+                className="relative px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-200"
+                style={{
+                  color: hoveredIndex === index ? 'var(--nav-text-active)' : 'var(--nav-text)',
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
               >
                 {link.label}
@@ -114,45 +114,56 @@ export default function Header() {
                 key={link.path}
                 ref={el => itemRefs.current[index] = el}
                 to={link.path}
-                className={`relative px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === link.path || hoveredIndex === index
-                    ? 'text-[#1D1D1F]'
-                    : 'text-[#1D1D1F]/70 hover:text-[#1D1D1F]'
-                }`}
+                className="relative px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-200"
+                style={{
+                  color: (location.pathname === link.path || hoveredIndex === index)
+                    ? 'var(--nav-text-active)'
+                    : 'var(--nav-text)',
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
               >
                 {link.label}
               </Link>
             )
           ))}
+
+          {/* Theme Toggle - Desktop */}
+          <div className="ml-1">
+            <ThemeToggle />
+          </div>
         </nav>
 
         {/* Mobile Header */}
         <div className="lg:hidden flex items-center justify-between">
           {/* Logo for Mobile */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-lg flex items-center justify-center">
+            <div className="w-9 h-9 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-lg flex items-center justify-center">
               <span className="text-white font-bold">A</span>
             </div>
             <span className="font-bold text-lg text-white">AAP Inc.</span>
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-full transition-colors"
-            style={{
-              background: 'rgba(255,255,255,0.2)',
-              backdropFilter: 'blur(10px)',
-            }}
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <Menu className="w-6 h-6 text-white" />
-            )}
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Theme Toggle - Mobile */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-full transition-colors"
+              style={{
+                background: 'var(--glass-bg-light)',
+                backdropFilter: 'blur(10px)',
+              }}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6 text-white" />
+              ) : (
+                <Menu className="w-6 h-6 text-white" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -165,11 +176,11 @@ export default function Header() {
               transition={{ duration: 0.2 }}
               className="lg:hidden mt-4 rounded-2xl overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 100%)',
+                background: `linear-gradient(135deg, var(--glass-bg) 0%, var(--glass-bg-light) 100%)`,
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
-                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: '0 4px 30px var(--glass-shadow)',
+                border: '1px solid var(--glass-border)',
               }}
             >
               <nav className="p-2 flex flex-col gap-1">
@@ -180,7 +191,8 @@ export default function Header() {
                       href={link.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 rounded-xl text-base font-medium transition-all text-[#1D1D1F]/80 hover:bg-white/50"
+                      className="px-4 py-3 rounded-xl text-base font-medium transition-all"
+                      style={{ color: 'var(--nav-text)' }}
                     >
                       {link.label}
                     </a>
@@ -188,11 +200,11 @@ export default function Header() {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
-                        location.pathname === link.path
-                          ? 'bg-white/80 text-[#1D1D1F]'
-                          : 'text-[#1D1D1F]/80 hover:bg-white/50'
-                      }`}
+                      className="px-4 py-3 rounded-xl text-base font-medium transition-all"
+                      style={{
+                        color: location.pathname === link.path ? 'var(--nav-text-active)' : 'var(--nav-text)',
+                        background: location.pathname === link.path ? 'var(--glass-bubble)' : 'transparent',
+                      }}
                     >
                       {link.label}
                     </Link>

@@ -49,10 +49,13 @@ export default function Contact() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F5F7] to-white pt-24">
+      <section
+        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24"
+        style={{ background: 'linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg))' }}
+      >
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-primary-gradient)]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
@@ -61,13 +64,13 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6">
               Get in Touch
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
               Contact Us
             </h1>
-            <p className="text-xl text-[#6E6E73] max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
               Ready to discuss your project? We're here to help bring your manufacturing vision to life.
             </p>
           </motion.div>
@@ -75,7 +78,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {contactMethods.map((method, index) => (
@@ -85,23 +88,23 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#F5F5F7] rounded-2xl p-8 text-center"
+                className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 text-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center mx-auto mb-4">
                   <method.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">{method.title}</h3>
-                <p className="text-[#6E6E73] mb-4">{method.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">{method.title}</h3>
+                <p className="text-[var(--color-text-secondary)] mb-4">{method.description}</p>
                 <div className="space-y-2">
                   {method.contacts.map((contact, i) => (
                     <div key={i} className="text-sm">
-                      <span className="text-[#6E6E73]">{contact.label}: </span>
+                      <span className="text-[var(--color-text-secondary)]">{contact.label}: </span>
                       {contact.link ? (
-                        <a href={contact.link} className="text-[#0066CC] hover:underline font-medium">
+                        <a href={contact.link} className="text-[var(--color-primary)] hover:underline font-medium">
                           {contact.value}
                         </a>
                       ) : (
-                        <span className="text-[#1D1D1F]">{contact.value}</span>
+                        <span className="text-[var(--color-text-primary)]">{contact.value}</span>
                       )}
                     </div>
                   ))}
@@ -113,7 +116,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Form */}
@@ -136,40 +139,40 @@ export default function Contact() {
               className="lg:pl-8"
             >
               {/* Response Time */}
-              <div className="bg-white rounded-2xl p-8 mb-8 border border-[#E8E8ED]">
+              <div className="bg-[var(--color-surface)] rounded-2xl p-8 mb-8 border border-[var(--color-border)]">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center">
                     <MessageSquare className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1D1D1F]">Quick Response</h3>
-                    <p className="text-sm text-[#6E6E73]">We respond within 24 hours</p>
+                    <h3 className="font-semibold text-[var(--color-text-primary)]">Quick Response</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">We respond within 24 hours</p>
                   </div>
                 </div>
-                <p className="text-[#6E6E73]">
+                <p className="text-[var(--color-text-secondary)]">
                   Our team is dedicated to providing prompt, helpful responses to all inquiries. Whether you need a quote, technical information, or general assistance, we're here to help.
                 </p>
               </div>
 
               {/* Business Hours */}
-              <div className="bg-white rounded-2xl p-8 mb-8 border border-[#E8E8ED]">
+              <div className="bg-[var(--color-surface)] rounded-2xl p-8 mb-8 border border-[var(--color-border)]">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1D1D1F]">Business Hours</h3>
-                    <p className="text-sm text-[#6E6E73]">When you can reach us</p>
+                    <h3 className="font-semibold text-[var(--color-text-primary)]">Business Hours</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">When you can reach us</p>
                   </div>
                 </div>
-                <div className="space-y-2 text-[#6E6E73]">
-                  <p><span className="text-[#1D1D1F] font-medium">Monday - Friday:</span> 8:00 AM - 5:00 PM</p>
-                  <p><span className="text-[#1D1D1F] font-medium">Saturday - Sunday:</span> Closed</p>
+                <div className="space-y-2 text-[var(--color-text-secondary)]">
+                  <p><span className="text-[var(--color-text-primary)] font-medium">Monday - Friday:</span> 8:00 AM - 5:00 PM</p>
+                  <p><span className="text-[var(--color-text-primary)] font-medium">Saturday - Sunday:</span> Closed</p>
                   <p className="text-sm mt-4">*Manufacturing operations run 24/7</p>
                 </div>
               </div>
 
-              {/* Location Quick Links */}
+              {/* Location Quick Links - DARK SECTION: stays hardcoded */}
               <div className="bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2F] rounded-2xl p-8">
                 <Building className="w-12 h-12 text-[#0066CC] mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-4">Our Facilities</h3>
@@ -204,7 +207,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Preview */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-4xl mx-auto px-6">
           <SectionHeading
             subtitle="Common Questions"
@@ -237,10 +240,10 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-[#F5F5F7] rounded-xl p-6"
+                className="bg-[var(--color-bg-secondary)] rounded-xl p-6"
               >
-                <h3 className="font-semibold text-[#1D1D1F] mb-2">{faq.question}</h3>
-                <p className="text-[#6E6E73]">{faq.answer}</p>
+                <h3 className="font-semibold text-[var(--color-text-primary)] mb-2">{faq.question}</h3>
+                <p className="text-[var(--color-text-secondary)]">{faq.answer}</p>
               </motion.div>
             ))}
           </div>

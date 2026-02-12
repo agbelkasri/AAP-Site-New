@@ -62,10 +62,10 @@ export default function Employment() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F5F7] to-white pt-24">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24" style={{ background: 'linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg))' }}>
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-primary-gradient)]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
@@ -74,18 +74,18 @@ export default function Employment() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6">
               Careers at AAP Inc.
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
               Join Our World-Class Team
             </h1>
-            <p className="text-xl text-[#6E6E73] max-w-3xl mx-auto mb-10">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-10">
               Build your career with a leading manufacturer committed to excellence, innovation, and the success of our team members.
             </p>
             <a
               href="#openings"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066CC] hover:bg-[#0052A3] text-white rounded-full font-medium transition-all shadow-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all shadow-lg"
             >
               View Open Positions
               <ArrowRight className="w-5 h-5" />
@@ -95,7 +95,7 @@ export default function Employment() {
       </section>
 
       {/* Why Work Here */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Why AAP Inc."
@@ -113,11 +113,11 @@ export default function Employment() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-3">{value.title}</h3>
-                <p className="text-[#6E6E73]">{value.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{value.title}</h3>
+                <p className="text-[var(--color-text-secondary)]">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -125,7 +125,7 @@ export default function Employment() {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Employee Benefits"
@@ -141,14 +141,14 @@ export default function Employment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-white rounded-2xl p-6 flex items-start gap-4 shadow-sm border border-[#E8E8ED] hover:shadow-lg transition-shadow"
+                className="bg-[var(--color-surface)] rounded-2xl p-6 flex items-start gap-4 shadow-sm border border-[var(--color-border)] hover:shadow-lg transition-shadow"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-xl flex items-center justify-center flex-shrink-0">
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1D1D1F] mb-1">{benefit.title}</h3>
-                  <p className="text-sm text-[#6E6E73]">{benefit.description}</p>
+                  <h3 className="font-semibold text-[var(--color-text-primary)] mb-1">{benefit.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">{benefit.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -213,7 +213,7 @@ export default function Employment() {
       </section>
 
       {/* Departments */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Career Paths"
@@ -229,10 +229,10 @@ export default function Employment() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-[#F5F5F7] rounded-xl p-6 flex items-center gap-4 hover:bg-[#E8E8ED] transition-colors"
+                className="bg-[var(--color-bg-secondary)] rounded-xl p-6 flex items-center gap-4 hover:bg-[var(--color-bg-tertiary)] transition-colors"
               >
-                <Briefcase className="w-6 h-6 text-[#0066CC]" />
-                <span className="font-medium text-[#1D1D1F]">{dept}</span>
+                <Briefcase className="w-6 h-6 text-[var(--color-primary)]" />
+                <span className="font-medium text-[var(--color-text-primary)]">{dept}</span>
               </motion.div>
             ))}
           </div>
@@ -240,7 +240,7 @@ export default function Employment() {
       </section>
 
       {/* Current Openings */}
-      <section id="openings" className="py-24 bg-[#F5F5F7]">
+      <section id="openings" className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Open Positions"
@@ -253,29 +253,29 @@ export default function Employment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl p-8 md:p-12 text-center border border-[#E8E8ED]"
+            className="bg-[var(--color-surface)] rounded-3xl p-8 md:p-12 text-center border border-[var(--color-border)]"
           >
-            <div className="w-20 h-20 bg-[#F5F5F7] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="w-10 h-10 text-[#0066CC]" />
+            <div className="w-20 h-20 bg-[var(--color-bg-secondary)] rounded-full flex items-center justify-center mx-auto mb-6">
+              <Briefcase className="w-10 h-10 text-[var(--color-primary)]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#1D1D1F] mb-4">
+            <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
               Check Back Soon
             </h3>
-            <p className="text-[#6E6E73] max-w-xl mx-auto mb-8">
+            <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto mb-8">
               We're always looking for talented individuals to join our team. While we don't have any positions posted at the moment, we encourage you to submit your resume for future opportunities.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="mailto:careers@aapinc.com"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066CC] hover:bg-[#0052A3] text-white rounded-full font-medium transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all"
               >
                 <Mail className="w-5 h-5" />
                 Submit Your Resume
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] rounded-full font-medium transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] rounded-full font-medium transition-all"
               >
                 Contact HR
               </Link>
@@ -285,7 +285,7 @@ export default function Employment() {
       </section>
 
       {/* Application Process */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="How to Apply"
@@ -310,14 +310,14 @@ export default function Employment() {
               >
                 {/* Connector Line */}
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-[#E8E8ED]" />
+                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-[var(--color-border)]" />
                 )}
 
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0066CC] to-[#0071E3] rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)] rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
                   <span className="text-white font-bold text-lg">{item.step}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1D1D1F] mb-2">{item.title}</h3>
-                <p className="text-sm text-[#6E6E73]">{item.description}</p>
+                <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-2">{item.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)]">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -325,7 +325,7 @@ export default function Employment() {
       </section>
 
       {/* Locations */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Work Locations"
@@ -344,12 +344,12 @@ export default function Employment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 flex items-center gap-6 shadow-sm border border-[#E8E8ED]"
+                className="bg-[var(--color-surface)] rounded-2xl p-8 flex items-center gap-6 shadow-sm border border-[var(--color-border)]"
               >
                 <span className="text-5xl">{loc.flag}</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1D1D1F] mb-1">{loc.location}</h3>
-                  <p className="text-[#0066CC]">{loc.phone}</p>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-1">{loc.location}</h3>
+                  <p className="text-[var(--color-primary)]">{loc.phone}</p>
                 </div>
               </motion.div>
             ))}

@@ -13,8 +13,8 @@ export default function Card({
   delay = 0,
 }) {
   const variants = {
-    default: 'bg-white border border-[#E8E8ED] hover:border-[#0066CC]/30 hover:shadow-xl',
-    filled: 'bg-[#F5F5F7] hover:bg-[#E8E8ED]',
+    default: 'bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 hover:shadow-xl',
+    filled: 'bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)]',
     dark: 'bg-[#1D1D1F] text-white',
   }
 
@@ -27,7 +27,7 @@ export default function Card({
       className={`rounded-2xl p-8 transition-all duration-300 h-full ${variants[variant]}`}
     >
       {image && (
-        <div className="aspect-video rounded-xl overflow-hidden mb-6 bg-[#F5F5F7]">
+        <div className="aspect-video rounded-xl overflow-hidden mb-6 bg-[var(--color-bg-secondary)]">
           <img
             src={image}
             alt={title}
@@ -40,27 +40,27 @@ export default function Card({
         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
           variant === 'dark'
             ? 'bg-[#0066CC]'
-            : 'bg-gradient-to-br from-[#0066CC] to-[#0071E3]'
+            : 'bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-gradient)]'
         }`}>
           <Icon className="w-7 h-7 text-white" />
         </div>
       )}
 
       <h3 className={`text-xl font-semibold mb-3 ${
-        variant === 'dark' ? 'text-white' : 'text-[#1D1D1F]'
+        variant === 'dark' ? 'text-white' : 'text-[var(--color-text-primary)]'
       }`}>
         {title}
       </h3>
 
       <p className={`mb-6 leading-relaxed ${
-        variant === 'dark' ? 'text-[#A1A1A6]' : 'text-[#6E6E73]'
+        variant === 'dark' ? 'text-[#A1A1A6]' : 'text-[var(--color-text-secondary)]'
       }`}>
         {description}
       </p>
 
       {link && (
         <span className={`inline-flex items-center gap-2 text-sm font-medium group ${
-          variant === 'dark' ? 'text-[#0071E3]' : 'text-[#0066CC]'
+          variant === 'dark' ? 'text-[#0071E3]' : 'text-[var(--color-primary)]'
         }`}>
           {linkText}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -142,7 +142,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4 justify-center mb-8">
               <Link
                 to="/products"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-[#0066CC] hover:bg-[#0052A3] text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
               >
                 Explore Capabilities
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -164,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* About Preview */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -173,21 +173,21 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4">
                 About AAP Inc.
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
                 American Manufacturing Excellence
               </h2>
-              <p className="text-lg text-[#6E6E73] mb-6 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-6 leading-relaxed">
                 Founded in 1993, AAP Inc. has grown into a world-class manufacturer serving the global automotive industry. With facilities in the USA and Mexico, we deliver precision-engineered solutions to OEMs and Tier One suppliers worldwide.
               </p>
-              <p className="text-lg text-[#6E6E73] mb-8 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
                 Our commitment to quality is demonstrated through our IATF 16949, ISO 14001, and NMSDC certifications, ensuring every product meets the highest standards.
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 text-[#0066CC] font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:gap-3 transition-all"
               >
                 Learn More About Us
                 <ArrowRight className="w-5 h-5" />
@@ -201,15 +201,15 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#F5F5F7] to-[#E8E8ED] overflow-hidden">
+              <div className="aspect-square rounded-3xl bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center">
-                  <Factory className="w-48 h-48 text-[#0066CC]/20" />
+                  <Factory className="w-48 h-48 text-[var(--color-primary)]/20" />
                 </div>
               </div>
               {/* Stats Overlay */}
-              <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-2xl p-6 border border-[#E8E8ED]">
-                <div className="text-4xl font-bold text-[#0066CC]">30+</div>
-                <div className="text-[#6E6E73]">Years of Excellence</div>
+              <div className="absolute -bottom-8 -right-8 bg-[var(--color-surface)] rounded-2xl shadow-2xl p-6 border border-[var(--color-border)]">
+                <div className="text-4xl font-bold text-[var(--color-primary)]">30+</div>
+                <div className="text-[var(--color-text-secondary)]">Years of Excellence</div>
               </div>
             </motion.div>
           </div>
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Core Competencies */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Our Expertise"
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* Innovation Spotlight */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -264,20 +264,20 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="order-1 lg:order-2"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4">
                 Innovation & Technology
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
                 Driving Manufacturing Innovation
               </h2>
-              <p className="text-lg text-[#6E6E73] mb-6 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] mb-6 leading-relaxed">
                 We continuously invest in state-of-the-art equipment and processes to deliver superior quality and efficiency. Our commitment to innovation keeps us at the forefront of manufacturing technology.
               </p>
               <ul className="space-y-4">
                 {['Advanced robotic welding systems', 'Precision stamping presses', 'Integrated quality control', 'Lean manufacturing processes'].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#0066CC]" />
-                    <span className="text-[#1D1D1F]">{item}</span>
+                    <div className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+                    <span className="text-[var(--color-text-primary)]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -287,7 +287,7 @@ export default function Home() {
       </section>
 
       {/* Certifications */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="py-24 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Quality Assured"
@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* Global Presence */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Global Reach"
@@ -314,13 +314,13 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-[#F5F5F7] rounded-3xl p-8 relative overflow-hidden group hover:shadow-xl transition-shadow"
+              className="bg-[var(--color-bg-secondary)] rounded-3xl p-8 relative overflow-hidden group hover:shadow-xl transition-shadow"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0066CC]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <Globe className="w-12 h-12 text-[#0066CC] mb-6" />
-              <h3 className="text-2xl font-bold text-[#1D1D1F] mb-2">USA Facility</h3>
-              <p className="text-[#6E6E73] mb-4">Michigan, United States</p>
-              <p className="text-[#0066CC] font-medium">+1 (248) 543-2427</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-primary)]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <Globe className="w-12 h-12 text-[var(--color-primary)] mb-6" />
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">USA Facility</h3>
+              <p className="text-[var(--color-text-secondary)] mb-4">Michigan, United States</p>
+              <p className="text-[var(--color-primary)] font-medium">+1 (248) 543-2427</p>
             </motion.div>
 
             <motion.div
@@ -328,20 +328,20 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-[#F5F5F7] rounded-3xl p-8 relative overflow-hidden group hover:shadow-xl transition-shadow"
+              className="bg-[var(--color-bg-secondary)] rounded-3xl p-8 relative overflow-hidden group hover:shadow-xl transition-shadow"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0066CC]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <Globe className="w-12 h-12 text-[#0066CC] mb-6" />
-              <h3 className="text-2xl font-bold text-[#1D1D1F] mb-2">Mexico Facility</h3>
-              <p className="text-[#6E6E73] mb-4">San Luis Potosí, Mexico</p>
-              <p className="text-[#0066CC] font-medium">+52 (444) 137-2100</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-primary)]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <Globe className="w-12 h-12 text-[var(--color-primary)] mb-6" />
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Mexico Facility</h3>
+              <p className="text-[var(--color-text-secondary)] mb-4">San Luis Potosí, Mexico</p>
+              <p className="text-[var(--color-primary)] font-medium">+52 (444) 137-2100</p>
             </motion.div>
           </div>
 
           <div className="text-center mt-12">
             <Link
               to="/locations"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#1D1D1F] hover:bg-[#2D2D2F] text-white rounded-full font-medium transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-text-primary)] hover:opacity-80 text-[var(--color-bg)] rounded-full font-medium transition-all"
             >
               View All Locations
               <ArrowRight className="w-5 h-5" />

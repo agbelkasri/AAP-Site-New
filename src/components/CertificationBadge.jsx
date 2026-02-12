@@ -31,15 +31,15 @@ export default function CertificationBadge({ name, showDescription = true, delay
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="flex items-center gap-4 p-4 bg-white rounded-xl border border-[#E8E8ED] hover:shadow-lg transition-shadow"
+      className="flex items-center gap-4 p-4 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] hover:shadow-lg transition-shadow"
     >
       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cert.color} flex items-center justify-center flex-shrink-0`}>
         <Icon className="w-6 h-6 text-white" />
       </div>
       <div>
-        <h4 className="font-semibold text-[#1D1D1F]">{name}</h4>
+        <h4 className="font-semibold text-[var(--color-text-primary)]">{name}</h4>
         {showDescription && (
-          <p className="text-sm text-[#6E6E73]">{cert.description}</p>
+          <p className="text-sm text-[var(--color-text-secondary)]">{cert.description}</p>
         )}
       </div>
     </motion.div>

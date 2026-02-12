@@ -31,10 +31,10 @@ export default function Hero({
 
       {/* Background Pattern */}
       {!backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F5F5F7] via-white to-[#F5F5F7]">
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg), var(--color-bg-secondary))` }}>
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/10 rounded-full blur-3xl" />
+            <div className="absolute top-20 left-20 w-96 h-96 rounded-full blur-3xl" style={{ background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)' }} />
+            <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl" style={{ background: 'color-mix(in srgb, var(--color-primary-gradient) 10%, transparent)' }} />
           </div>
         </div>
       )}
@@ -50,21 +50,21 @@ export default function Hero({
             <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 ${
               backgroundImage
                 ? 'bg-white/10 text-white/90 backdrop-blur-sm'
-                : 'bg-[#0066CC]/10 text-[#0066CC]'
+                : 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]'
             }`}>
               {subtitle}
             </span>
           )}
 
           <h1 className={`text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight ${
-            backgroundImage ? 'text-white' : 'text-[#1D1D1F]'
+            backgroundImage ? 'text-white' : 'text-[var(--color-text-primary)]'
           }`}>
             {title}
           </h1>
 
           {description && (
             <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed ${
-              backgroundImage ? 'text-white/80' : 'text-[#6E6E73]'
+              backgroundImage ? 'text-white/80' : 'text-[var(--color-text-secondary)]'
             }`}>
               {description}
             </p>
@@ -75,7 +75,7 @@ export default function Hero({
               {primaryCTA && (
                 <Link
                   to={primaryCTALink || '#'}
-                  className="group inline-flex items-center gap-2 px-8 py-4 bg-[#0066CC] hover:bg-[#0052A3] text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl"
                 >
                   {primaryCTA}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +87,7 @@ export default function Hero({
                   className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium transition-all ${
                     backgroundImage
                       ? 'bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm'
-                      : 'bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F]'
+                      : 'bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)]'
                   }`}
                 >
                   {secondaryCTA}

@@ -74,10 +74,13 @@ export default function Locations() {
       transition={{ duration: 0.3 }}
     >
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#F5F5F7] to-white pt-24">
+      <section
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24"
+        style={{ background: 'linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg))' }}
+      >
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-[#0066CC]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0071E3]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-20 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-[var(--color-primary-gradient)]/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
@@ -86,13 +89,13 @@ export default function Locations() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#0066CC]/10 text-[#0066CC] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6">
               Our Facilities
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1D1D1F] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">
               Global Locations
             </h1>
-            <p className="text-xl text-[#6E6E73] max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
               Strategically positioned facilities in the USA and Mexico to serve our customers efficiently across North America and beyond.
             </p>
           </motion.div>
@@ -100,7 +103,7 @@ export default function Locations() {
       </section>
 
       {/* Map Overview */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-[var(--color-bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="North American Presence"
@@ -175,7 +178,7 @@ export default function Locations() {
         <section
           key={location.id}
           id={location.id}
-          className={`py-24 ${index % 2 === 0 ? 'bg-[#F5F5F7]' : 'bg-white'}`}
+          className={`py-24 ${index % 2 === 0 ? 'bg-[var(--color-bg-secondary)]' : 'bg-[var(--color-bg)]'}`}
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className={`grid lg:grid-cols-2 gap-16 items-start`}>
@@ -190,34 +193,34 @@ export default function Locations() {
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-5xl">{location.flag}</span>
                   <div>
-                    <h2 className="text-4xl font-bold text-[#1D1D1F]">{location.country}</h2>
-                    <p className="text-[#6E6E73] text-lg">{location.city}</p>
+                    <h2 className="text-4xl font-bold text-[var(--color-text-primary)]">{location.country}</h2>
+                    <p className="text-[var(--color-text-secondary)] text-lg">{location.city}</p>
                   </div>
                 </div>
 
                 {/* Contact Info */}
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#E8E8ED] mb-8">
-                  <h3 className="text-lg font-semibold text-[#1D1D1F] mb-4">Contact Information</h3>
+                <div className="bg-[var(--color-surface)] rounded-2xl p-6 shadow-sm border border-[var(--color-border)] mb-8">
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Contact Information</h3>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-5 h-5 text-[#0066CC]" />
+                      <div className="w-10 h-10 bg-[var(--color-bg-secondary)] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-5 h-5 text-[var(--color-primary)]" />
                       </div>
-                      <span className="text-[#1D1D1F]">{location.address}</span>
+                      <span className="text-[var(--color-text-primary)]">{location.address}</span>
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-5 h-5 text-[#0066CC]" />
+                      <div className="w-10 h-10 bg-[var(--color-bg-secondary)] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Phone className="w-5 h-5 text-[var(--color-primary)]" />
                       </div>
-                      <a href={location.phoneLink} className="text-[#0066CC] hover:underline font-medium">
+                      <a href={location.phoneLink} className="text-[var(--color-primary)] hover:underline font-medium">
                         {location.phone}
                       </a>
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-5 h-5 text-[#0066CC]" />
+                      <div className="w-10 h-10 bg-[var(--color-bg-secondary)] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Mail className="w-5 h-5 text-[var(--color-primary)]" />
                       </div>
-                      <a href={`mailto:${location.email}`} className="text-[#0066CC] hover:underline">
+                      <a href={`mailto:${location.email}`} className="text-[var(--color-primary)] hover:underline">
                         {location.email}
                       </a>
                     </div>
@@ -226,12 +229,12 @@ export default function Locations() {
 
                 {/* Capabilities */}
                 <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-[#1D1D1F] mb-4">Facility Capabilities</h3>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Facility Capabilities</h3>
                   <div className="flex flex-wrap gap-2">
                     {location.capabilities.map((cap, i) => (
                       <span
                         key={i}
-                        className="px-4 py-2 bg-white rounded-full text-sm text-[#1D1D1F] border border-[#E8E8ED]"
+                        className="px-4 py-2 bg-[var(--color-surface)] rounded-full text-sm text-[var(--color-text-primary)] border border-[var(--color-border)]"
                       >
                         {cap}
                       </span>
