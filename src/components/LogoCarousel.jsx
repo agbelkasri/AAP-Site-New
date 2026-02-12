@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 // Import logo images
 import adientLogo from '../assets/images/logos/adient.png'
 import autokinitonLogo from '../assets/images/logos/autokiniton.png'
@@ -16,66 +14,81 @@ import voestalpineLogo from '../assets/images/logos/voestalpine.png'
 
 const clients = [
   { name: 'Adient', logo: adientLogo },
-  { name: 'Autokiniton', logo: autokinitonLogo, size: 'h-20 max-w-[220px]' },
-  { name: 'GM', logo: gmLogo },
-  { name: 'Golde Group', logo: goldeGroupLogo, size: 'h-16 max-w-[200px]' },
+  { name: 'Autokiniton', logo: autokinitonLogo, size: 'h-12 max-w-[180px]' },
+  { name: 'GM', logo: gmLogo, size: 'h-12 max-w-[180px]' },
+  { name: 'Golde Group', logo: goldeGroupLogo, size: 'h-9 max-w-[160px]' },
   { name: 'Lear', logo: learLogo },
   { name: 'Metalsa', logo: metalsaLogo },
   { name: 'NYX', logo: nyxLogo },
   { name: 'OP Mobility', logo: opmobilityLogo },
   { name: 'Stellantis', logo: stellantisLogo },
-  { name: 'Thyssenkrupp', logo: thyssenkruppLogo, size: 'h-16 max-w-[200px]' },
-  { name: 'Toyo Seat', logo: toyoSeatLogo },
+  { name: 'Thyssenkrupp', logo: thyssenkruppLogo, size: 'h-12 max-w-[180px]' },
+  { name: 'Toyo Seat', logo: toyoSeatLogo, size: 'h-12 max-w-[180px]' },
   { name: 'Voestalpine', logo: voestalpineLogo },
 ]
 
 export default function LogoCarousel() {
-  // Duplicate the array for seamless infinite scroll
   const duplicatedClients = [...clients, ...clients]
 
-  return (
-    <section className="pt-2 pb-6 overflow-hidden" style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)', backdropFilter: 'blur(8px)' }}>
-      <div className="max-w-7xl mx-auto px-6 mb-3">
-        <p className="text-center text-white/70 text-[10px] uppercase tracking-widest">
-          Trusted by Industry Leaders
-        </p>
-      </div>
+  const renderTrack = (highlight = false) => (
+    <div
+      className="flex items-center gap-10 px-4 shrink-0"
+      style={{
+        animation: 'ticker-scroll 35s linear infinite',
+      }}
+    >
+      {clients.map((client) => (
+        <div
+          key={client.name}
+          className={`flex-shrink-0 flex items-center justify-center ${client.size || 'h-7 max-w-[120px]'}`}
+        >
+          <img
+            src={client.logo}
+            alt={client.name}
+            className={`h-full w-auto object-contain transition-none mix-blend-multiply ${
+              highlight
+                ? 'brightness-110'
+                : 'grayscale opacity-50'
+            } ${client.className || ''}`}
+          />
+        </div>
+      ))}
+    </div>
+  )
 
+  return (
+    <section className="py-1 overflow-hidden" style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)', backdropFilter: 'blur(12px)' }}>
       {/* Scrolling container */}
       <div className="relative">
         {/* Gradient fade on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.25), transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, rgba(255,255,255,0.25), transparent)' }} />
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.45), transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10" style={{ background: 'linear-gradient(to left, rgba(0,0,0,0.45), transparent)' }} />
 
-        {/* Scrolling track */}
-        <motion.div
-          className="flex items-center gap-10 px-4"
-          animate={{
-            x: [0, -160 * clients.length],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              duration: 35,
-              ease: 'linear',
-            },
+        {/* Base layer - grayscale and dimmed */}
+        <div className="flex overflow-hidden">
+          {renderTrack(false)}
+          {renderTrack(false)}
+        </div>
+
+        {/* Highlight layer - full color, masked to center only */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none flex"
+          style={{
+            maskImage: 'linear-gradient(90deg, transparent 35%, black 48%, black 52%, transparent 65%)',
+            WebkitMaskImage: 'linear-gradient(90deg, transparent 35%, black 48%, black 52%, transparent 65%)',
           }}
         >
-          {duplicatedClients.map((client, index) => (
-            <div
-              key={`${client.name}-${index}`}
-              className={`flex-shrink-0 flex items-center justify-center ${client.size || 'h-12 max-w-[140px]'}`}
-            >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className={`h-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply ${client.className || ''}`}
-              />
-            </div>
-          ))}
-        </motion.div>
+          {renderTrack(true)}
+          {renderTrack(true)}
+        </div>
       </div>
+
+      <style>{`
+        @keyframes ticker-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
     </section>
   )
 }
