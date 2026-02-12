@@ -34,7 +34,7 @@ export default function LogoCarousel() {
   const duplicatedClients = [...clients, ...clients]
 
   return (
-    <section className="pt-2 pb-6 bg-white/50 overflow-hidden">
+    <section className="pt-2 pb-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-3">
         <p className="text-center text-[#9E9E9E] text-[10px] uppercase tracking-widest">
           Trusted by Industry Leaders
@@ -70,7 +70,7 @@ export default function LogoCarousel() {
               <img
                 src={client.logo}
                 alt={client.name}
-                className={`h-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${client.className || ''}`}
+                className={`h-full w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mix-blend-multiply ${client.className || ''}`}
               />
             </div>
           ))}
