@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
@@ -54,6 +55,27 @@ const departments = [
 ]
 
 export default function Employment() {
+  const paycorRef = useRef(null)
+
+  useEffect(() => {
+    // Load Paycor recruiting script
+    const script = document.createElement('script')
+    script.id = 'gnewtonjs'
+    script.type = 'text/javascript'
+    script.src = '//recruitingbypaycor.com/career/iframe.action?clientId=8a7883d094b427e80194b8fbcc3700f9'
+    script.async = true
+
+    if (paycorRef.current) {
+      paycorRef.current.appendChild(script)
+    }
+
+    return () => {
+      // Cleanup on unmount
+      const existing = document.getElementById('gnewtonjs')
+      if (existing) existing.remove()
+    }
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -253,33 +275,10 @@ export default function Employment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-[var(--color-surface)] rounded-3xl p-8 md:p-12 text-center border border-[var(--color-border)]"
+            className="bg-[var(--color-surface)] rounded-3xl p-8 md:p-12 border border-[var(--color-border)]"
           >
-            <div className="w-20 h-20 bg-[var(--color-bg-secondary)] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="w-10 h-10 text-[var(--color-primary)]" />
-            </div>
-            <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
-              Check Back Soon
-            </h3>
-            <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto mb-8">
-              We're always looking for talented individuals to join our team. While we don't have any positions posted at the moment, we encourage you to submit your resume for future opportunities.
-            </p>
-
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="mailto:careers@aapincorp.com"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all"
-              >
-                <Mail className="w-5 h-5" />
-                Submit Your Resume
-              </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] rounded-full font-medium transition-all"
-              >
-                Contact HR
-              </Link>
-            </div>
+            {/* Paycor Job Listings Embed */}
+            <div ref={paycorRef} className="min-h-[400px]" />
           </motion.div>
         </div>
       </section>
