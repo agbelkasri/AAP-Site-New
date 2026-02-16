@@ -25,8 +25,8 @@ const contactMethods = [
     title: 'Email Us',
     description: 'We respond within 24 hours',
     contacts: [
-      { label: 'General', value: 'info@aapinc.com', link: 'mailto:info@aapinc.com' },
-      { label: 'Sales', value: 'sales@aapinc.com', link: 'mailto:sales@aapinc.com' },
+      { label: 'General', value: 'info@aapincorp.com', link: 'mailto:info@aapincorp.com' },
+      { label: 'Sales', value: 'sales@aapincorp.com', link: 'mailto:sales@aapincorp.com' },
     ],
   },
   {

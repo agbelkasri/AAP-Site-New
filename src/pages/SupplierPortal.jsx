@@ -196,7 +196,7 @@ export default function SupplierPortal() {
                 </a>
 
                 <a
-                  href="mailto:suppliers@aapinc.com"
+                  href="mailto:suppliers@aapincorp.com"
                   className="flex items-center gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl hover:bg-[var(--color-bg-tertiary)] transition-colors"
                 >
                   <div className="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
@@ -204,7 +204,7 @@ export default function SupplierPortal() {
                   </div>
                   <div>
                     <div className="text-sm text-[var(--color-text-secondary)]">Email Us</div>
-                    <div className="text-[var(--color-text-primary)] font-medium">suppliers@aapinc.com</div>
+                    <div className="text-[var(--color-text-primary)] font-medium">suppliers@aapincorp.com</div>
                   </div>
                 </a>
               </div>

@@ -267,7 +267,7 @@ export default function Employment() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="mailto:careers@aapinc.com"
+                href="mailto:careers@aapincorp.com"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full font-medium transition-all"
               >
                 <Mail className="w-5 h-5" />
@@ -373,7 +373,7 @@ export default function Employment() {
               Join a team that values quality, innovation, and your professional growth.
             </p>
             <a
-              href="mailto:careers@aapinc.com"
+              href="mailto:careers@aapincorp.com"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-[#F5F5F7] text-[#0066CC] rounded-full font-medium transition-all shadow-lg"
             >
               Apply Today

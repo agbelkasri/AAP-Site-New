@@ -23,7 +23,7 @@ const locations = [
     address: 'Michigan, USA',
     phone: '+1 (248) 543-2427',
     phoneLink: 'tel:+12485432427',
-    email: 'usa@aapinc.com',
+    email: 'usa@aapincorp.com',
     capabilities: [
       'Metal Stampings',
       'Weldments',
@@ -47,7 +47,7 @@ const locations = [
     address: 'San Luis Potosí, Mexico',
     phone: '+52 (444) 137-2100',
     phoneLink: 'tel:+524441372100',
-    email: 'mexico@aapinc.com',
+    email: 'mexico@aapincorp.com',
     capabilities: [
       'Metal Stampings',
       'Weldments',
