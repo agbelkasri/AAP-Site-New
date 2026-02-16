@@ -16,83 +16,38 @@ import SectionHeading from '../components/SectionHeading'
 
 const locations = [
   {
-    id: 'eap',
-    name: 'Emerging Advanced Products, LLC',
-    city: 'Van Buren Township, MI',
+    id: 'usa',
+    country: 'United States',
+    city: 'Michigan',
     flag: '🇺🇸',
-    address: 'Van Buren Township, MI, USA',
+    address: 'Michigan, USA',
     phone: '+1 (248) 543-2427',
     phoneLink: 'tel:+12485432427',
-    email: 'eap@aapinc.com',
+    email: 'usa@aapincorp.com',
     capabilities: [
       'Metal Stampings',
+      'Weldments',
+      'Mechanical Assemblies',
       'Engineering Support',
-      'Prototyping',
       'Quality Lab',
       'Tooling',
     ],
     features: [
       'State-of-the-art stamping presses',
+      'Robotic welding cells',
       'Advanced quality inspection',
       'On-site engineering team',
-      'Rapid prototyping capabilities',
-    ],
-  },
-  {
-    id: 'gap',
-    name: 'Global Advanced Products, LLC',
-    city: 'Chesterfield, MI',
-    flag: '🇺🇸',
-    address: 'Chesterfield, MI, USA',
-    phone: '+1 (248) 543-2427',
-    phoneLink: 'tel:+12485432427',
-    email: 'gap@aapinc.com',
-    capabilities: [
-      'Metal Stampings',
-      'Weldments',
-      'Mechanical Assemblies',
-      'Quality Control',
-      'Logistics',
-    ],
-    features: [
-      'High-volume production capacity',
-      'Robotic welding cells',
-      'Advanced quality inspection',
-      'Efficient supply chain logistics',
-    ],
-  },
-  {
-    id: 'aap',
-    name: 'Advanced Assembly Products, Inc.',
-    city: 'Hazel Park, MI',
-    flag: '🇺🇸',
-    address: 'Hazel Park, MI, USA',
-    phone: '+1 (248) 543-2427',
-    phoneLink: 'tel:+12485432427',
-    email: 'info@aapinc.com',
-    capabilities: [
-      'Mechanical Assemblies',
-      'Weldments',
-      'Sub-Assembly',
-      'Quality Control',
-      'Tooling',
-    ],
-    features: [
-      'Full mechanical assembly lines',
-      'Robotic welding cells',
-      'Comprehensive quality lab',
-      'Skilled production workforce',
     ],
   },
   {
     id: 'mexico',
-    name: 'Advanced Assembly Products Mexico',
-    city: 'Villa de Reyes, San Luis Potosí',
+    country: 'Mexico',
+    city: 'San Luis Potosí',
     flag: '🇲🇽',
-    address: 'Villa de Reyes, San Luis Potosí, Mexico',
+    address: 'San Luis Potosí, Mexico',
     phone: '+52 (444) 137-2100',
     phoneLink: 'tel:+524441372100',
-    email: 'mexico@aapinc.com',
+    email: 'mexico@aapincorp.com',
     capabilities: [
       'Metal Stampings',
       'Weldments',
@@ -141,7 +96,7 @@ export default function Locations() {
               Global Locations
             </h1>
             <p className="text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto">
-              Four strategically positioned facilities across Michigan and Mexico to serve our customers efficiently throughout North America.
+              Strategically positioned facilities in the USA and Mexico to serve our customers efficiently across North America and beyond.
             </p>
           </motion.div>
         </div>
@@ -152,8 +107,8 @@ export default function Locations() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="North American Presence"
-            title="Four Facilities, One Mission"
-            description="State-of-the-art facilities working together to deliver world-class manufacturing solutions across North America."
+            title="USA & Mexico Operations"
+            description="Two state-of-the-art facilities working together to deliver world-class manufacturing solutions."
           />
 
           {/* Visual Map Representation */}
@@ -162,7 +117,7 @@ export default function Locations() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2F] rounded-3xl p-8 md:p-12 mb-16 overflow-hidden"
+            className="relative bg-gradient-to-br from-[#1D1D1F] to-[#2D2D2F] rounded-3xl p-8 md:p-16 mb-16 overflow-hidden"
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
@@ -170,23 +125,49 @@ export default function Locations() {
               <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-white rounded-full" />
             </div>
 
-            <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-              {locations.map((loc, i) => (
-                <motion.div
-                  key={loc.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.15 * i }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <span className="text-2xl">{loc.flag}</span>
-                  </div>
-                  <h3 className="text-sm font-semibold text-white mb-1 leading-tight">{loc.name}</h3>
-                  <p className="text-white/60 text-xs">{loc.city}</p>
-                </motion.div>
-              ))}
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+              {/* USA Location Pin */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-center"
+              >
+                <div className="w-20 h-20 bg-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <span className="text-3xl">🇺🇸</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-1">USA</h3>
+                <p className="text-white/60">Michigan</p>
+              </motion.div>
+
+              {/* Connection Line */}
+              <div className="hidden md:block w-32 h-px bg-gradient-to-r from-[#0066CC] to-[#0071E3]" />
+              <div className="md:hidden h-16 w-px bg-gradient-to-b from-[#0066CC] to-[#0071E3]" />
+
+              {/* Globe Icon */}
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <Globe className="w-8 h-8 text-[#0066CC]" />
+              </div>
+
+              {/* Connection Line */}
+              <div className="hidden md:block w-32 h-px bg-gradient-to-r from-[#0071E3] to-[#0066CC]" />
+              <div className="md:hidden h-16 w-px bg-gradient-to-b from-[#0071E3] to-[#0066CC]" />
+
+              {/* Mexico Location Pin */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-center"
+              >
+                <div className="w-20 h-20 bg-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <span className="text-3xl">🇲🇽</span>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-1">Mexico</h3>
+                <p className="text-white/60">San Luis Potosí</p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -212,7 +193,7 @@ export default function Locations() {
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-5xl">{location.flag}</span>
                   <div>
-                    <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">{location.name}</h2>
+                    <h2 className="text-4xl font-bold text-[var(--color-text-primary)]">{location.country}</h2>
                     <p className="text-[var(--color-text-secondary)] text-lg">{location.city}</p>
                   </div>
                 </div>
@@ -300,8 +281,8 @@ export default function Locations() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             subtitle="Strategic Advantage"
-            title="Why Four Facilities?"
-            description="Our multi-facility approach provides strategic advantages for our customers."
+            title="Why USA & Mexico?"
+            description="Our dual-facility approach provides strategic advantages for our customers."
             light={true}
           />
 
@@ -315,12 +296,12 @@ export default function Locations() {
               {
                 icon: Cog,
                 title: 'Flexible Capacity',
-                description: 'Scalable production across four facilities to meet varying demand requirements.',
+                description: 'Scalable production across two facilities to meet varying demand requirements.',
               },
               {
                 icon: Wrench,
                 title: 'Redundancy',
-                description: 'Business continuity through multi-source manufacturing capabilities.',
+                description: 'Business continuity through dual-source manufacturing capabilities.',
               },
             ].map((item, index) => (
               <motion.div
