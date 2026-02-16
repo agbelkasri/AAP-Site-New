@@ -24,21 +24,56 @@ export default function Employment() {
   const paycorRef = useRef(null)
 
   useEffect(() => {
-    // Load Paycor recruiting script
-    const script = document.createElement('script')
-    script.id = 'gnewtonjs'
-    script.type = 'text/javascript'
-    script.src = '//recruitingbypaycor.com/career/iframe.action?clientId=8a7883d094b427e80194b8fbcc3700f9'
-    script.async = true
+    if (!paycorRef.current) return
 
-    if (paycorRef.current) {
-      paycorRef.current.appendChild(script)
-    }
+    // The Paycor script uses document.write which doesn't work in React SPAs.
+    // Instead, create a temporary iframe, load the script inside it, then
+    // replace the container with the resulting content.
+    const container = paycorRef.current
+
+    // Create a hidden iframe to execute the Paycor script
+    const loaderFrame = document.createElement('iframe')
+    loaderFrame.style.cssText = 'width:100%;border:none;min-height:600px;'
+    loaderFrame.title = 'Job Openings'
+    loaderFrame.src = 'about:blank'
+    container.appendChild(loaderFrame)
+
+    // Write the Paycor script into the iframe so document.write works
+    const frameDoc = loaderFrame.contentDocument || loaderFrame.contentWindow.document
+    frameDoc.open()
+    frameDoc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+          </style>
+        </head>
+        <body>
+          <script id="gnewtonjs" type="text/javascript" src="//recruitingbypaycor.com/career/iframe.action?clientId=8a7883d094b427e80194b8fbcc3700f9"><\/script>
+        </body>
+      </html>
+    `)
+    frameDoc.close()
+
+    // Auto-resize the iframe to fit content
+    const resizeObserver = setInterval(() => {
+      try {
+        const body = loaderFrame.contentDocument?.body
+        if (body) {
+          const height = body.scrollHeight
+          if (height > 100) {
+            loaderFrame.style.height = height + 'px'
+          }
+        }
+      } catch (e) {
+        // Cross-origin - stop trying to resize
+        clearInterval(resizeObserver)
+      }
+    }, 500)
 
     return () => {
-      // Cleanup on unmount
-      const existing = document.getElementById('gnewtonjs')
-      if (existing) existing.remove()
+      clearInterval(resizeObserver)
     }
   }, [])
 
