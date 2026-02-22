@@ -148,10 +148,11 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Client Logos - Inside hero */}
+        {/* Client Logos - Inside hero (hidden for now)
         <div className="absolute bottom-0 left-0 right-0">
           <LogoCarousel />
         </div>
+        */}
       </section>
 
       {/* About Preview */}
